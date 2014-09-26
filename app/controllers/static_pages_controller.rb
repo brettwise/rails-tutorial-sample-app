@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  # def contact
+  # 	raise params.to_yaml
+  # end
 end
