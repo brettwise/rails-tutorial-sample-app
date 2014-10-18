@@ -10,8 +10,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                password:              "foo",
                                password_confirmation: "bar" }
     end
+    assert_template 'users/new'
+    assert 'flash'
+    assert_select 'div#error_explanation', 1
+    assert_select 'div.alert.alert-danger', 1
+  end
 
-    test "valid signup information"
+    test "valid signup information" do
       get signup_path
       name      = "Example User"
       email     = "user@example.com"
@@ -22,6 +27,5 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                               password:              password,
                                               password_confirmation: password}
       end
-    assert_template 'users/new'
-  end
+    end 
 end
