@@ -19,6 +19,10 @@ class ActiveSupport::TestCase
     password    = options[:password]    || 'password'
     remember_me = options[:remember_me] || '1'
     if integration_test?
+      get help_path
+      get about_path
+      get contact_path
+      get signup_path
       post login_path, session: { email:        user.email, 
                                   password:     password,
                                   remember_me:  remember_me }
